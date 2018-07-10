@@ -25,7 +25,8 @@ Operations:
 Requirements:
 
 - All requests must be HTTP-signed with a valid actor
-- Only payload that contain a linked-data signature will be re-broadcast
+- Only payloads that contain a linked-data signature will be re-broadcast
+- Only payloads addressed to `https://www.w3.org/ns/activitystreams#Public` will be re-broadcast
 
 Setting up:
 
