@@ -1,6 +1,8 @@
 class ProcessWorker
   include Sidekiq::Worker
 
+  PUBLIC_COLLECTION = 'https://www.w3.org/ns/activitystreams#Public'
+
   def perform(actor, body)
     @actor = actor
     @body  = body
@@ -34,7 +36,15 @@ class ProcessWorker
   end
 
   def addressed_to_public?
-    (Array(@json['to']) + Array(@json['cc'])).include?('https://www.w3.org/ns/activitystreams#Public')
+    (Array(@json['to']) + Array(@json['cc'])).include?(PUBLIC_COLLECTION)
+  end
+
+  def subscribe_to_public?
+    if @json['object'].is_a?(Hash)
+      @json['object']['id'] == PUBLIC_COLLECTION
+    else
+      @json['object'] == PUBLIC_COLLECTION
+    end
   end
 
   def supported_type?
@@ -42,6 +52,8 @@ class ProcessWorker
   end
 
   def subscribe!
+    return unless subscribe_to_public?
+
     subscription   = Subscription.find_by(account_id: @actor['id'])
     subscription ||= Subscription.new(account_id: @actor['id'])
     subscription.inbox_url = @actor['inbox']
