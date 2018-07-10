@@ -15,9 +15,12 @@ Endpoints:
 
 Operations:
 
-- Send a Follow activity to the inbox to subscribe
-- Send an Undo of Follow activity to the inbox to unsubscribe
-- Send anything else to the inbox to broadcast it
+- Send a Follow activity to the inbox to subscribe  \
+  Object: `https://www.w3.org/ns/activitystreams#Public`
+- Send an Undo of Follow activity to the inbox to unsubscribe  \
+  Object of object: `https://www.w3.org/ns/activitystreams#Public`
+- Send anything else to the inbox to broadcast it  \
+  Supported types: `Create`, `Delete`, `Announce`, `Undo`
 
 Requirements:
 
