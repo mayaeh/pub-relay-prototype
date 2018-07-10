@@ -5,6 +5,8 @@ pub-relay
 
 This is a **proof-of-concept**. Due to the expected high load such a service would receive, a more performance-oriented language would be advisable.
 
+![](https://i.imgur.com/5q8db54.jpg)
+
 Endpoints:
 
 - `GET /actor`
