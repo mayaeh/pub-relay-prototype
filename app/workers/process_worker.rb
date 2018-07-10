@@ -6,16 +6,40 @@ class ProcessWorker
     @body  = body
     @json  = Oj.load(@body, mode: :null)
 
-    if @json['type'] == 'Follow'
+    if follow?
       subscribe!
-    if @json['type'] == 'Undo' && @json['object']['type'] == 'Follow'
+    elsif unfollow?
       unsubscribe!
-    elsif @json['signature'].present?
+    elsif valid_for_rebroadcast?
       pass_through!
     end
   end
 
   private
+
+  def follow?
+    @json['type'] == 'Follow'
+  end
+
+  def unfollow?
+    @json['type'] == 'Undo' && @json['object']['type'] == 'Follow'
+  end
+
+  def valid_for_rebroadcast?
+    signed? && addressed_to_public? && supported_type?
+  end
+
+  def signed?
+    @json['signature'].present?
+  end
+
+  def addressed_to_public?
+    (Array(@json['to']) + Array(@json['cc'])).include?('https://www.w3.org/ns/activitystreams#Public')
+  end
+
+  def supported_type?
+    !(Array(@json['type']) & %w(Create Delete Announce Undo)).empty?
+  end
 
   def subscribe!
     subscription   = Subscription.find_by(account_id: @actor['id'])
@@ -25,7 +49,7 @@ class ProcessWorker
   end
 
   def unsubscribe!
-    Subscription.where(account_id: @actor['id']).delete
+    Subscription.where(account_id: @actor['id']).delete_all
   end
 
   def pass_through!

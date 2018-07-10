@@ -1,7 +1,7 @@
 class ActorsController < ApplicationController
   def show
-    render content_type: 'application/activity+json', json: {
-      '@context': %w(https://www.w3.org/ns/activitystreams https://w3id.org/security/v1)
+    render content_type: 'application/activity+json', json: Oj.dump({
+      '@context': %w(https://www.w3.org/ns/activitystreams https://w3id.org/security/v1),
 
       id: actor_url,
       type: 'Service',
@@ -13,6 +13,6 @@ class ActorsController < ApplicationController
         owner: actor_url,
         publicKeyPem: Actor.key.public_key.to_pem,
       },
-    }
+    })
   end
 end

@@ -4,14 +4,14 @@ class WebfingerController < ApplicationController
       head(404) and return
     end
 
-    render content_type: 'application/json', json: {
+    render content_type: 'application/json', json: Oj.dump({
       subject: acct,
       links: [{
         rel: 'self',
         type: 'application/activity+json',
         href: actor_url,
       }],
-    }
+    })
   end
 
   private
