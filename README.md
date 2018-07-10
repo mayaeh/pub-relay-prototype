@@ -3,6 +3,8 @@ pub-relay
 
 ...is a service-type ActivityPub actor that will re-broadcast anything sent to it to anyone who subscribes to it.
 
+This is a **proof-of-concept**. Due to the expected high load such a service would receive, a more performance-oriented language would be advisable.
+
 Endpoints:
 
 - `GET /actor`
