@@ -106,11 +106,19 @@ module SignatureVerification
       signature_params['signature'].blank?
   end
 
+  def optional_fetch(url)
+    Oj.load(Rails.cache.fetch(url, raw: true, expires_in: 1.day) {
+      HTTP.headers('Accept' => 'application/activity+json, application/ld+json')
+          .get(key_id)
+          .to_s
+    }, mode: :null)
+  end
+
   def account_from_key_id(key_id)
-    json = Oj.load(HTTP.headers('Accept' => 'application/activity+json, application/ld+json').get(key_id).to_s, mode: :null)
+    json = optional_fetch(key_id)
 
     if json['publicKeyPem']
-      actor = Oj.load(HTTP.headers('Accept' => 'application/activity+json, application/ld+json').get(json['owner']).to_s, mode: :null)
+      actor = optional_fetch(json['owner'])
       actor['publicKey'] = json
       actor
     else
