@@ -32,3 +32,5 @@ Setting up:
 
 - `rake db:setup` to create database
 - `rake keygen` to create actor signature key
+
+CLI interface: `bin/relayctl` for a list of commands
