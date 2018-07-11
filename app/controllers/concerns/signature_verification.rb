@@ -73,8 +73,8 @@ module SignatureVerification
     signed_headers = 'date' if signed_headers.blank?
 
     signed_headers.split(' ').map do |signed_header|
-      if signed_header == Request::REQUEST_TARGET
-        "#{Request::REQUEST_TARGET}: #{request.method.downcase} #{request.path}"
+      if signed_header == '(request-target)'
+        "(request-target): #{request.method.downcase} #{request.path}"
       elsif signed_header == 'digest'
         "digest: #{body_digest}"
       else
