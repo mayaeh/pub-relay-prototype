@@ -11,8 +11,10 @@ class DeliverWorker
     signature     = Base64.strict_encode64(Actor.key.sign(OpenSSL::Digest::SHA256.new, signed_string))
     header        = 'keyId="' + actor_url + '",headers="(request-target) host date",signature="' + signature + '"'
 
-    http_client.headers({ 'Host': host, 'Date': date, 'Signature': header })
-               .post(url, body: body)
+    res = http_client.headers({ 'Host': host, 'Date': date, 'Signature': header })
+                     .post(url, body: body)
+
+    logger.debug "#{url}: HTTP #{res.code} (#{res.to_s})"
   ensure
     http_client.close
   end
