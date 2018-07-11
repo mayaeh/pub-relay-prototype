@@ -3,7 +3,7 @@ class InboxesController < ApplicationController
 
   def create
     if signed_request_account && !blocked?
-      ProcessWorker.perform_async(signed_request_account, request.body.read)
+      ProcessWorker.perform_async(signed_request_account, request.body.read.force_encoding('UTF-8'))
       render plain: 'OK', status: 202
     else
       render plain: signature_verification_failure_reason, status: 401
