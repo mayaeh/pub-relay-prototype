@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: pub-relay_production
-  username: pub-relay
-  password: <%= ENV['PUB-RELAY_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DB_NAME'] || 'pub-relay_production' %>
+  username: <%= ENV['DB_USER'] || 'pub-relay' %>
+  password: <%= ENV['DB_PASS'] %>
