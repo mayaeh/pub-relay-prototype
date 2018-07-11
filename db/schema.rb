@@ -10,15 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_09_224318) do
+ActiveRecord::Schema.define(version: 2018_07_11_165942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "blocks", force: :cascade do |t|
+    t.string "domain", default: "", null: false
+    t.index ["domain"], name: "index_blocks_on_domain", unique: true
+  end
+
   create_table "subscriptions", force: :cascade do |t|
-    t.string "account_id", default: "", null: false
+    t.string "domain", default: "", null: false
     t.string "inbox_url", default: "", null: false
-    t.index ["account_id"], name: "index_subscriptions_on_account_id", unique: true
+    t.index ["domain"], name: "index_subscriptions_on_domain", unique: true
   end
 
 end

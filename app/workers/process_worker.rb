@@ -48,25 +48,29 @@ class ProcessWorker
   end
 
   def supported_type?
-    !(Array(@json['type']) & %w(Create Delete Announce Undo)).empty?
+    !(Array(@json['type']) & %w(Create Update Delete Announce Undo)).empty?
   end
 
   def subscribe!
     return unless subscribe_to_public?
 
-    subscription   = Subscription.find_by(account_id: @actor['id'])
-    subscription ||= Subscription.new(account_id: @actor['id'])
+    subscription   = Subscription.find_by(domain: domain)
+    subscription ||= Subscription.new(domain: domain)
     subscription.inbox_url = @actor['inbox']
     subscription.save
   end
 
   def unsubscribe!
-    Subscription.where(account_id: @actor['id']).delete_all
+    Subscription.where(domain: domain).delete_all
   end
 
   def pass_through!
-    Subscription.where.not(account_id: @actor['id']).find_each do |subscription|
+    Subscription.where.not(domain: domain).find_each do |subscription|
       DeliverWorker.perform_async(subscription.inbox_url, @body)
     end
+  end
+
+  def domain
+    @domain ||= Addressable::URI.parse(@actor['id']).normalized_host
   end
 end
