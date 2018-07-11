@@ -14,7 +14,7 @@ class DeliverWorker
     res = http_client.headers({ 'Host': host, 'Date': date, 'Signature': header })
                      .post(url, body: body)
 
-    logger.debug "#{url}: HTTP #{res.code} (#{res.to_s})"
+    logger.info "#{url}: HTTP #{res.code} (#{res.to_s})"
   ensure
     http_client.close
   end
