@@ -109,7 +109,7 @@ module SignatureVerification
   def optional_fetch(url)
     Oj.load(Rails.cache.fetch(url, raw: true, expires_in: 1.day) {
       HTTP.headers('Accept' => 'application/activity+json, application/ld+json')
-          .get(key_id)
+          .get(url)
           .to_s
     }, mode: :null)
   end
