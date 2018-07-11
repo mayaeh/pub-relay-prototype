@@ -19,7 +19,7 @@ class DeliverWorker
   private
 
   def actor_url
-    Application.routes.url_helpers.actor_url
+    PubRelay::Application.routes.url_helpers.actor_url
   end
 
   def http_client
