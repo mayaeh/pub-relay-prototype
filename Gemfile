@@ -31,4 +31,8 @@ group :test do
   gem 'rspec-sidekiq'
 end
 
+group :production do
+  gem 'lograge'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
