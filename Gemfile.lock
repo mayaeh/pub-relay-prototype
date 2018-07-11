@@ -55,6 +55,10 @@ GEM
     diff-lcs (1.3)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     erubi (1.7.1)
     ffi (1.9.25)
     fuubar (2.3.1)
@@ -188,6 +192,7 @@ DEPENDENCIES
   addressable
   bootsnap (>= 1.1.0)
   byebug
+  dotenv-rails
   fuubar
   http
   listen (>= 3.0.5, < 3.2)

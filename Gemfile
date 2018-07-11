@@ -11,6 +11,7 @@ gem 'oj'
 gem 'http'
 gem 'addressable'
 gem 'sidekiq'
+gem 'dotenv-rails'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
