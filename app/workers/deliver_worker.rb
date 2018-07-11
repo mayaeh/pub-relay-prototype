@@ -13,7 +13,8 @@ class DeliverWorker
 
     http_client.headers({ 'Host': host, 'Date': date, 'Signature': header })
                .post(url, body: body)
-               .close
+  ensure
+    http_client.close
   end
 
   private
