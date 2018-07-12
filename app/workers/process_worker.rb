@@ -66,7 +66,7 @@ class ProcessWorker
   end
 
   def pass_through!
-    DeliverWorker.push_bulk(active_subscriptions) do |inbox_url|
+    DeliverWorker.push_bulk(active_subscriptions) do |_domain, inbox_url|
       [inbox_url, @body]
     end
   end
