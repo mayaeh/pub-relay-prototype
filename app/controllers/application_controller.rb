@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class ApplicationController < ActionController::API
   def root
-    render plain: PubRelay::Application.default_url_options[:host]
+    render plain: "URL of the relay inbox: #{inbox_url}"
   end
 
   def raise_not_found
