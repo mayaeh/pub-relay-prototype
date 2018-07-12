@@ -16,6 +16,7 @@ gem 'dotenv-rails'
 gem 'hiredis', '~> 0.6'
 gem 'redis-namespace', '~> 1.5'
 gem 'redis', '~> 4.0', require: ['redis', 'redis/connection/hiredis']
+gem 'redis-rails'
 gem 'fast_blank'
 
 gem 'bootsnap', '>= 1.1.0', require: false
