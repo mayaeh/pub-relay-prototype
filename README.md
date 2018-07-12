@@ -15,12 +15,12 @@ Endpoints:
 
 Operations:
 
-- Send a Follow activity to the inbox to subscribe  \
-  Object: `https://www.w3.org/ns/activitystreams#Public`
-- Send an Undo of Follow activity to the inbox to unsubscribe  \
-  Object of object: `https://www.w3.org/ns/activitystreams#Public`
-- Send anything else to the inbox to broadcast it  \
-  Supported types: `Create`, `Delete`, `Announce`, `Undo`
+- Send a Follow activity to the inbox to subscribe
+  (Object: `https://www.w3.org/ns/activitystreams#Public`)
+- Send an Undo of Follow activity to the inbox to unsubscribe
+  (Object of object: `https://www.w3.org/ns/activitystreams#Public`)
+- Send anything else to the inbox to broadcast it
+  (Supported types: `Create`, `Update`, `Delete`, `Announce`, `Undo`)
 
 Requirements:
 
@@ -33,4 +33,4 @@ Setting up:
 - `rake db:setup` to create database
 - `rake keygen` to create actor signature key
 
-CLI interface: `bin/relayctl` for a list of commands
+CLI interface: `bin/relayctl` for a list of commands. The relay server supports blocking domains.
