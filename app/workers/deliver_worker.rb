@@ -2,7 +2,7 @@
 class DeliverWorker
   include Sidekiq::Worker
 
-  sidekiq_options retries: false
+  sidekiq_options retry: false
 
   def perform(url, body)
     parsed_url    = Addressable::URI.parse(url).normalize
