@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module SignatureVerification
   extend ActiveSupport::Concern
 
@@ -107,7 +108,7 @@ module SignatureVerification
   end
 
   def optional_fetch(url)
-    Oj.load(Rails.cache.fetch(url, raw: true, expires_in: 1.day) {
+    Oj.load(Rails.cache.fetch("response:#{url}", raw: true, expires_in: 1.day) {
       HTTP.headers('Accept' => 'application/activity+json, application/ld+json')
           .get(url)
           .to_s

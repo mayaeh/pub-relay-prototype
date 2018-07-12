@@ -32,7 +32,7 @@ module PubRelay
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    Rails.application.default_url_options[:host]     = ENV.fetch('DOMAIN', 'localhost')
+    Rails.application.default_url_options[:host]     = ENV.fetch('DOMAIN') { "localhost:#{ENV.fetch('PORT', 3000)}" }
     Rails.application.default_url_options[:protocol] = ENV['HTTPS'] == 'true' ? 'https' : 'http'
   end
 end

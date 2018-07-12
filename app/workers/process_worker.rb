@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ProcessWorker
   include Sidekiq::Worker
 
@@ -56,7 +57,7 @@ class ProcessWorker
 
     subscription   = Subscription.find_by(domain: domain)
     subscription ||= Subscription.new(domain: domain)
-    subscription.inbox_url = @actor['inbox']
+    subscription.inbox_url = @actor['endpoints'].is_a?(Hash) && @actor['endpoints']['sharedInbox'].present? ? @actor['endpoints']['sharedInbox'] : @actor['inbox']
     subscription.save
   end
 
@@ -65,9 +66,15 @@ class ProcessWorker
   end
 
   def pass_through!
-    Subscription.where.not(domain: domain).find_each do |subscription|
-      DeliverWorker.perform_async(subscription.inbox_url, @body)
+    DeliverWorker.push_bulk(active_subscriptions) do |inbox_url|
+      [inbox_url, @body]
     end
+  end
+
+  def active_subscriptions
+    records = Rails.cache.fetch('subscriptions') { Subscription.pluck(:domain, :inbox_url) }
+    records.reject! { |record_domain, _| record_domain == domain }
+    records
   end
 
   def domain

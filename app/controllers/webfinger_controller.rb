@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class WebfingerController < ApplicationController
   def show
     if params[:resource] != acct

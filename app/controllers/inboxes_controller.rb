@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class InboxesController < ApplicationController
   include SignatureVerification
 
@@ -13,6 +14,7 @@ class InboxesController < ApplicationController
   private
 
   def blocked?
-    Block.where(domain: Addressable::URI.parse(signed_request_account['id']).normalized_host).exists?
+    domain = Addressable::URI.parse(signed_request_account['id']).normalized_host
+    Rails.cache.fetch("block:#{domain}") { Block.where(domain: domain).exists? }
   end
 end

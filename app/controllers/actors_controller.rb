@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ActorsController < ApplicationController
   def show
     render content_type: 'application/activity+json', json: Oj.dump({
