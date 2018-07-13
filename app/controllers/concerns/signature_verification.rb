@@ -118,7 +118,7 @@ module SignatureVerification
   def account_from_key_id(key_id)
     json = optional_fetch(key_id)
 
-    if json['publicKeyPem']
+    if json && json['publicKeyPem']
       actor = optional_fetch(json['owner'])
       actor['publicKey'] = json
       actor
