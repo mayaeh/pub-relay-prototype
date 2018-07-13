@@ -113,6 +113,8 @@ module SignatureVerification
           .get(url)
           .to_s
     }, mode: :null)
+  rescue Oj::ParseError
+    nil
   end
 
   def account_from_key_id(key_id)
