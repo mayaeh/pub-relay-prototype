@@ -62,7 +62,7 @@ class ProcessWorker
   end
 
   def unsubscribe!
-    Subscription.where(domain: domain).delete_all
+    Subscription.where(domain: domain).destroy_all
   end
 
   def pass_through!
