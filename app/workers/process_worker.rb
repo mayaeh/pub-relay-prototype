@@ -69,7 +69,7 @@ class ProcessWorker
           id: @json['id'],
           type: "Follow",
 	  actor: @actor['id'],
-          object: @json['id']
+          object: URI.join(Rails.application.routes.url_helpers.root_url, "/actor")
         },
     })
 
