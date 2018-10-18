@@ -41,4 +41,4 @@ group :production do
   gem 'lograge'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', '~> 1.2018'
