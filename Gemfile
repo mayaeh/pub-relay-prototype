@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '>= 2.3.0', '< 2.6.0'
+ruby '>= 2.4.0', '< 2.7.0'
 
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.2.2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.12'
 
@@ -14,15 +14,16 @@ gem 'sidekiq'
 gem 'sidekiq-bulk'
 gem 'dotenv-rails'
 gem 'hiredis', '~> 0.6'
+gem 'nokogiri'
 gem 'redis-namespace', '~> 1.5'
-gem 'redis', '~> 4.0', require: ['redis', 'redis/connection/hiredis']
+gem 'redis', '~> 4.1', require: ['redis', 'redis/connection/hiredis']
 gem 'redis-rails'
 gem 'fast_blank'
 
-gem 'bootsnap', '>= 1.3', require: false
+gem 'bootsnap', '>= 1.4', require: false
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug'
   gem 'fuubar'
   gem 'rspec-rails'
 end
