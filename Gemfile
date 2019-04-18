@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '>= 2.4.0', '< 2.7.0'
 
-gem 'rails', '~> 5.2.2'
+gem 'rails', '~> 5.2.3'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.12'
 
@@ -42,4 +42,4 @@ group :production do
   gem 'lograge'
 end
 
-gem 'tzinfo-data', '~> 1.2018'
+gem 'tzinfo-data', '~> 1.2019'
