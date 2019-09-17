@@ -49,7 +49,7 @@ class ProcessWorker
   end
 
   def supported_type?
-    !(Array(@json['type']) & %w(Create Update Delete Announce Undo)).empty?
+    !(Array(@json['type']) & %w(Create Update Delete Announce Undo Move)).empty?
   end
 
   def subscribe!
