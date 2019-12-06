@@ -5,7 +5,7 @@ ruby '>= 2.4.0', '< 2.7.0'
 
 gem 'rails', '~> 5.2.3'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 4.2'
+gem 'puma', '~> 4.3'
 
 gem 'oj'
 gem 'http'
