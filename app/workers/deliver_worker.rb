@@ -28,6 +28,6 @@ class DeliverWorker
 
   def http_client
     HTTP.use(:auto_inflate)
-        .timeout(:per_operation, write: 10, connect: 10, read: 10)
+        .timeout(write: 10, connect: 10, read: 10)
   end
 end
