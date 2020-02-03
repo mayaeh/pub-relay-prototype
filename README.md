@@ -20,7 +20,7 @@ Operations:
 - Send an Undo of Follow activity to the inbox to unsubscribe
   (Object of object: `https://www.w3.org/ns/activitystreams#Public`)
 - Send anything else to the inbox to broadcast it
-  (Supported types: `Create`, `Update`, `Delete`, `Announce`, `Undo`)
+  (Supported types: `Create`, `Update`, `Delete`, `Announce`, `Undo`, `Move`)
 
 Requirements:
 
