@@ -8,11 +8,12 @@ class DeliverWorker
     parsed_url    = Addressable::URI.parse(url).normalize
     host          = parsed_url.host
     date          = Time.now.utc.httpdate
+    user_agent    = "pub-relay-prototype"
     signed_string = "(request-target): post #{parsed_url.path}\nhost: #{host}\ndate: #{date}"
     signature     = Base64.strict_encode64(Actor.key.sign(OpenSSL::Digest::SHA256.new, signed_string))
     header        = 'keyId="' + actor_url + '",headers="(request-target) host date",signature="' + signature + '"'
 
-    res = http_client.headers({ 'Host': host, 'Date': date, 'Signature': header })
+    res = http_client.headers({ 'Host': host, 'Date': date, 'Signature': header, 'User-Agent': user_agent })
                      .post(url, body: body)
 
     logger.info "#{url}: HTTP #{res.code} (#{res.to_s})"
