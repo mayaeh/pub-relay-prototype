@@ -48,7 +48,7 @@ GEM
     bootsnap (1.4.6)
       msgpack (~> 1.0)
     builder (3.2.4)
-    byebug (11.1.2)
+    byebug (11.1.3)
     concurrent-ruby (1.1.6)
     connection_pool (2.2.2)
     crass (1.0.6)
@@ -209,7 +209,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2019.3)
+    tzinfo-data (1.2020.1)
       tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
@@ -247,7 +247,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets (~> 3.7)
-  tzinfo-data (~> 1.2019)
+  tzinfo-data (~> 1.2020)
 
 RUBY VERSION
    ruby 2.6.5p105
