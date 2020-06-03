@@ -11,7 +11,8 @@ class DeliverWorker
     user_agent    = "pub-relay-prototype"
     signed_string = "(request-target): post #{parsed_url.path}\nhost: #{host}\ndate: #{date}"
     signature     = Base64.strict_encode64(Actor.key.sign(OpenSSL::Digest::SHA256.new, signed_string))
-    header        = 'keyId="' + actor_url + '",headers="(request-target) host date",signature="' + signature + '"'
+    algorithm     = "rsa-sha256"
+    header        = 'keyId="' + actor_url + '",algorithm="' + algorithm + '",headers="(request-target) host date",signature="' + signature + '"'
 
     res = http_client.headers({ 'Host': host, 'Date': date, 'Signature': header, 'User-Agent': user_agent })
                      .post(url, body: body)
