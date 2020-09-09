@@ -9,13 +9,22 @@ class DeliverWorker
     host          = parsed_url.host
     date          = Time.now.utc.httpdate
     user_agent    = "pub-relay-prototype"
-    signed_string = "(request-target): post #{parsed_url.path}\nhost: #{host}\ndate: #{date}"
+    content_type  = "application/ld+json;profile=\"https://www.w3.org/ns/activitystreams\""
+    digest        = "SHA-256=#{Digest::SHA256.base64digest(body)}"
+    signed_string = "(request-target): post #{parsed_url.path}\nhost: #{host}\ndate: #{date}\ndigest: #{digest}"
     signature     = Base64.strict_encode64(Actor.key.sign(OpenSSL::Digest::SHA256.new, signed_string))
     algorithm     = "rsa-sha256"
-    header        = 'keyId="' + actor_url + '",algorithm="' + algorithm + '",headers="(request-target) host date",signature="' + signature + '"'
+    header        = 'keyId="' + actor_url + '",algorithm="' + algorithm + '",headers="(request-target) host date digest",signature="' + signature + '"'
 
-    res = http_client.headers({ 'Host': host, 'Date': date, 'Signature': header, 'User-Agent': user_agent })
-                     .post(url, body: body)
+    res = http_client.headers({
+      'Host': host,
+      'Date': date,
+      'Digest': digest,
+      'Signature': header,
+      'User-Agent': user_agent,
+      'Content-Type': content_type,
+    })
+    .post(url, body: body)
 
     logger.info "#{url}: HTTP #{res.code} (#{res.to_s})"
   ensure
