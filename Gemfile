@@ -6,7 +6,7 @@ ruby '>= 2.4.0', '< 2.7.0'
 gem 'rails', '~> 5.2.4'
 gem 'sprockets', '~> 3.7'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 5.0'
 
 gem 'oj'
 gem 'http'
