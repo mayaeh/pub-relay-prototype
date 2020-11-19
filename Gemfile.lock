@@ -83,7 +83,7 @@ GEM
       ffi-compiler
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
-    listen (3.2.1)
+    listen (3.3.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     lograge (0.11.2)
@@ -227,7 +227,7 @@ DEPENDENCIES
   fuubar
   hiredis (~> 0.6)
   http
-  listen (>= 3.0.5, < 3.3)
+  listen (>= 3.0.5, < 3.4)
   lograge
   nokogiri
   oj
