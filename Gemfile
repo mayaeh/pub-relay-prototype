@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '>= 2.4.0', '< 2.7.0'
+ruby '>= 2.5.0', '< 3.0.0'
 
-gem 'rails', '~> 5.2.4'
-gem 'sprockets', '~> 3.7'
+gem 'rails', '~> 5.2.4.4'
+gem 'sprockets', '~> 3.7.2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 5.1'
 
