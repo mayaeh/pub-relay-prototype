@@ -103,7 +103,7 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
     minitest (5.14.3)
-    msgpack (1.3.3)
+    msgpack (1.4.2)
     nio4r (2.5.4)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
@@ -245,7 +245,7 @@ DEPENDENCIES
   sidekiq-bulk
   spring
   spring-watcher-listen (~> 2.0.0)
-  sprockets (~> 3.7)
+  sprockets (~> 3.7.2)
   tzinfo-data (~> 1.2021)
 
 RUBY VERSION
