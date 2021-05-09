@@ -45,4 +45,4 @@ end
 
 gem 'tzinfo-data', '~> 1.2021'
 
-gem 'resolv', '~> 0.1.0'
+gem 'resolv', '~> 0.2.0'
