@@ -44,3 +44,5 @@ group :production do
 end
 
 gem 'tzinfo-data', '~> 1.2021'
+
+gem 'resolv', '~> 0.2.0'
