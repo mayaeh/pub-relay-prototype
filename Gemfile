@@ -17,7 +17,7 @@ gem 'dotenv-rails'
 gem 'hiredis', '~> 0.6'
 gem 'nokogiri'
 gem 'redis-namespace', '~> 1.8'
-gem 'redis', '~> 4.4', require: ['redis', 'redis/connection/hiredis']
+gem 'redis', '~> 4.5', require: ['redis', 'redis/connection/hiredis']
 gem 'redis-rails'
 gem 'fast_blank'
 
