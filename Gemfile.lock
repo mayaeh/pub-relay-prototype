@@ -165,7 +165,7 @@ GEM
       redis (>= 4, < 5)
     request_store (1.5.1)
       rack (>= 1.4)
-    resolv (0.2.1)
+    resolv (0.2.2)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -239,7 +239,7 @@ DEPENDENCIES
   redis (~> 4.5)
   redis-namespace (~> 1.9)
   redis-rails
-  resolv (~> 0.2.1)
+  resolv (~> 0.2.2)
   rspec-rails
   rspec-sidekiq
   sidekiq
