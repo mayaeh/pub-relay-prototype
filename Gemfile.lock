@@ -206,9 +206,9 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.2.1)
     thread_safe (0.3.6)
-    tzinfo (1.2.10)
+    tzinfo (1.2.11)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2022.7)
+    tzinfo-data (1.2023.3)
       tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
@@ -247,7 +247,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets (~> 3.7.2)
-  tzinfo-data (~> 1.2022)
+  tzinfo-data (~> 1.2023)
 
 RUBY VERSION
    ruby 2.7.4p191
