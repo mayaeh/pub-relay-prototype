@@ -49,7 +49,7 @@ class ProcessWorker
   end
 
   def supported_type?
-    !(Array(@json['type']) & %w(Create Update Delete Announce Undo)).empty?
+    !(Array(@json['type']) & %w(Create Update Delete Announce Undo Move)).empty?
   end
 
   def subscribe!
@@ -59,10 +59,25 @@ class ProcessWorker
     subscription ||= Subscription.new(domain: domain)
     subscription.inbox_url = @actor['endpoints'].is_a?(Hash) && @actor['endpoints']['sharedInbox'].present? ? @actor['endpoints']['sharedInbox'] : @actor['inbox']
     subscription.save
+    
+    accept_activity = Oj.dump({
+      '@context': %w(https://www.w3.org/ns/activitystreams https://w3id.org/security/v1),
+      id: URI.join(Rails.application.routes.url_helpers.root_url, "/actor#accepts/follows/#{domain}"),
+      type: 'Accept',
+      actor: URI.join(Rails.application.routes.url_helpers.root_url, "/actor"),
+        object: {
+          id: @json['id'],
+          type: "Follow",
+          actor: @actor['id'],
+          object: URI.join(Rails.application.routes.url_helpers.root_url, "/actor")
+        },
+    })
+
+    DeliverWorker.perform_async(subscription.inbox_url, accept_activity)
   end
 
   def unsubscribe!
-    Subscription.where(domain: domain).delete_all
+    Subscription.where(domain: domain).destroy_all
   end
 
   def pass_through!
