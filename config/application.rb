@@ -39,6 +39,6 @@ module PubRelay
     Rails.application.default_url_options[:host]     = ENV.fetch('DOMAIN') { "localhost:#{ENV.fetch('PORT', 3000)}" }
     Rails.application.default_url_options[:protocol] = ENV['HTTPS'] == 'true' ? 'https' : 'http'
 
-    config.cache_store = :redis_store, { url: ENV['REDIS_URL'], namespace: ENV['REDIS_NAMESPACE'] }
+    config.cache_store = :redis_store, { url: ENV['REDIS_URL'] }
   end
 end

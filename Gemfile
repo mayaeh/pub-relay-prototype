@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '>= 2.5.0', '< 3.0.0'
+ruby '>= 3.0.0'
 
-gem 'rails', '~> 5.2.5'
+gem 'rails', '~> 7'
 gem 'sprockets', '~> 3.7.2'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 5.3'
+gem 'puma', '~> 5.6'
 
 gem 'oj'
 gem 'http'
@@ -16,8 +16,8 @@ gem 'sidekiq-bulk'
 gem 'dotenv-rails'
 gem 'hiredis', '~> 0.6'
 gem 'nokogiri'
-gem 'redis-namespace', '~> 1.8'
-gem 'redis', '~> 4.3', require: ['redis', 'redis/connection/hiredis']
+gem 'redis-namespace', '~> 1.10'
+gem 'redis', '~> 4.5', require: ['redis', 'redis/connection/hiredis']
 gem 'redis-rails'
 gem 'fast_blank'
 
@@ -30,7 +30,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.7'
+  gem 'listen', '>= 3.0.5', '< 3.9'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
@@ -43,6 +43,6 @@ group :production do
   gem 'lograge'
 end
 
-gem 'tzinfo-data', '~> 1.2021'
+gem 'tzinfo-data', '~> 1.2023'
 
-gem 'resolv', '~> 0.2.1'
+gem 'resolv', '~> 0.2.2'
