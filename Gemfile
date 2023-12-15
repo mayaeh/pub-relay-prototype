@@ -14,10 +14,10 @@ gem 'addressable'
 gem 'sidekiq'
 gem 'sidekiq-bulk'
 gem 'dotenv-rails'
-gem 'hiredis', '~> 0.6'
 gem 'nokogiri'
+gem "hiredis-client", "~> 0.18.0"
 gem 'redis-namespace', '~> 1.10'
-gem 'redis', '~> 5.0', require: ['redis', 'redis/connection/hiredis']
+gem 'redis', '~> 5.0'
 gem 'redis-rails'
 gem 'fast_blank'
 
