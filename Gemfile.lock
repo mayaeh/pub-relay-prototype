@@ -233,7 +233,7 @@ GEM
       redis-actionpack (>= 5.0, < 6)
       redis-activesupport (>= 5.0, < 6)
       redis-store (>= 1.2, < 2)
-    redis-store (1.9.2)
+    redis-store (1.10.0)
       redis (>= 4, < 6)
     reline (0.4.1)
       io-console (~> 0.5)
@@ -328,4 +328,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.4.22
+   2.5.3
