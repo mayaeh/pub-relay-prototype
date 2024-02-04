@@ -281,7 +281,7 @@ GEM
     timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2023.4)
+    tzinfo-data (1.2024.1)
       tzinfo (>= 1.0.0)
     unf (0.1.4)
       unf_ext
@@ -322,7 +322,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.1.0)
   sprockets (~> 4.2.1)
-  tzinfo-data (~> 1.2023)
+  tzinfo-data (~> 1.2024)
 
 RUBY VERSION
    ruby 3.2.2p53
