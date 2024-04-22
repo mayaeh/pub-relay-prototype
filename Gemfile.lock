@@ -89,10 +89,7 @@ GEM
     date (3.3.4)
     diff-lcs (1.5.0)
     domain_name (0.6.20240107)
-    dotenv (3.0.2)
-    dotenv-rails (3.0.2)
-      dotenv (= 3.0.2)
-      railties (>= 6.1)
+    dotenv (3.1.0)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -296,7 +293,7 @@ DEPENDENCIES
   addressable
   bootsnap (>= 1.4)
   byebug
-  dotenv-rails
+  dotenv
   fast_blank
   fuubar
   hiredis-client (~> 0.21.0)

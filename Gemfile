@@ -13,7 +13,7 @@ gem 'http'
 gem 'addressable'
 gem 'sidekiq'
 gem 'sidekiq-bulk'
-gem 'dotenv-rails'
+gem 'dotenv'
 gem 'nokogiri'
 gem "hiredis-client", "~> 0.21.0"
 gem 'redis-namespace', '~> 1.10'

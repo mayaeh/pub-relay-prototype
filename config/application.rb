@@ -17,7 +17,7 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
+Dotenv::Rails.load
 
 require_relative '../lib/redis/namespace_extensions'
 
