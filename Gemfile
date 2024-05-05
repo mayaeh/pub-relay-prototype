@@ -27,6 +27,7 @@ group :development, :test do
   gem 'byebug'
   gem 'fuubar'
   gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
