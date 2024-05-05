@@ -10,6 +10,17 @@
 #   inflect.uncountable %w( fish sheep )
 # end
 
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.acronym 'ActivityPub'
+  inflect.acronym 'ActivityStreams'
+  inflect.acronym 'ASCII'
+  inflect.acronym 'CLI'
+  inflect.acronym 'Ed25519'
+  inflect.acronym 'JsonLd'
+  inflect.acronym 'REST'
+  inflect.acronym 'RSS'
+end
+
 # These inflection rules are supported but not enabled by default:
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym "RESTful"
