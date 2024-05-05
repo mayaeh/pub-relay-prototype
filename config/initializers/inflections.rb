@@ -14,6 +14,7 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym 'ActivityPub'
   inflect.acronym 'ActivityStreams'
   inflect.acronym 'ASCII'
+  inflect.acronym 'PubRelay'
   inflect.acronym 'CLI'
   inflect.acronym 'Ed25519'
   inflect.acronym 'JsonLd'
