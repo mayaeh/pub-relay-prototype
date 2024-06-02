@@ -103,6 +103,9 @@ jobs:
           at: .
       - wait-db
       - run:
+          command: ./bin/rails keygen
+          name: create actor signature key file
+      - run:
           command: ./bin/rails db:create db:schema:load db:seed
           name: Load database schema
       - ruby/rspec-test
