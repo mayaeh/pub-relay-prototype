@@ -15,10 +15,9 @@ gem 'sidekiq'
 gem 'sidekiq-bulk'
 gem 'dotenv'
 gem 'nokogiri'
-gem "hiredis-client", "~> 0.22.1"
+gem 'hiredis', '~> 0.6'
 gem 'redis-namespace', '~> 1.10'
 gem 'redis', '~> 5.1'
-gem 'redis-rails'
 gem 'fast_blank'
 
 gem 'bootsnap', '>= 1.4', require: false
