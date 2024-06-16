@@ -152,7 +152,7 @@ Rails.application.config.active_record.query_log_tags_format = :sqlcommenter
 #
 # `config.load_defaults 7.1` does not set this value for environments other than
 # development and test.
-Rails.application.config.log_file_size = 100 * 1024 * 1024
+Rails.application.config.log_file_size = 100 * 1024 * 1024 if Rails.env.local?
 
 ###
 # Enable raising on assignment to attr_readonly attributes. The previous
