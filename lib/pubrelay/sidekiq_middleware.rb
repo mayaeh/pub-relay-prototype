@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class Pubrelay::SidekiqMiddleware
+class PubRelay::SidekiqMiddleware
   BACKTRACE_LIMIT = 3
 
   def call(*, &block)
     Chewy.strategy(:pubrelay, &block)
-  rescue Pubrelay::HostValidationError
+  rescue PubRelay::HostValidationError
     # Do not retry
   rescue => e
     limit_backtrace_and_raise(e)

@@ -6,7 +6,7 @@ Sidekiq.configure_server do |config|
   config.redis = REDIS_SIDEKIQ_PARAMS
 
   config.server_middleware do |chain|
-    chain.add Pubrelay::SidekiqMiddleware
+    chain.add PubRelay::SidekiqMiddleware
   end
 
   config.server_middleware do |chain|
