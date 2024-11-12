@@ -157,10 +157,10 @@ GEM
     nokogiri (1.16.7)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    oj (3.16.5)
+    oj (3.16.7)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
-    ostruct (0.6.0)
+    ostruct (0.6.1)
     pg (1.5.6)
     psych (5.1.2)
       stringio
