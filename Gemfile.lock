@@ -237,7 +237,7 @@ GEM
       io-console (~> 0.5)
     request_store (1.5.1)
       rack (>= 1.4)
-    resolv (0.3.0)
+    resolv (0.5.0)
     rspec-core (3.13.0)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.0)
@@ -312,7 +312,7 @@ DEPENDENCIES
   redis (~> 5.3)
   redis-namespace (~> 1.10)
   redis-rails
-  resolv (~> 0.3.0)
+  resolv (~> 0.5.0)
   rspec-rails
   rspec-sidekiq
   rspec_junit_formatter
