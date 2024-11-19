@@ -25,12 +25,17 @@ require_relative "../lib/redis/namespace_extensions"
 module PubRelay
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.1
+
+    # Explicitly set the cache format version to align with Rails version
+    config.active_support.cache_format_version = 7.1
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w(assets tasks))
+    # config.autoload_lib(ignore: %w(assets tasks templates generators))
+    # TODO: We should enable this eventually, but for now there are many things
+    # in the wrong path from the perspective of zeitwerk.
 
     # Configuration for the application, engines, and railties goes here.
     #
