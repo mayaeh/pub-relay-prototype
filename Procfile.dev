@@ -1,0 +1,2 @@
+api: env PORT=3000 RAILS_ENV=development bin/rails s
+sidekiq: env PORT=3000 RAILS_ENV=development bundle exec sidekiq
