@@ -158,8 +158,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.17.2)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.17.2-x86_64-linux)
       racc (~> 1.4)
     oj (3.16.8)
       bigdecimal (>= 3.0)
@@ -173,7 +172,7 @@ GEM
     puma (6.4.3)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (2.2.9)
+    rack (2.2.10)
     rack-session (1.0.2)
       rack (< 3)
     rack-test (2.1.0)
@@ -269,8 +268,7 @@ GEM
       rspec-core (>= 2, < 4, != 2.12.0)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
-    sidekiq (7.2.4)
-      concurrent-ruby (< 2)
+    sidekiq (7.3.6)
       connection_pool (>= 2.3.0)
       logger
       rack (>= 2.2.4)
@@ -298,7 +296,7 @@ GEM
     zeitwerk (2.7.1)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   addressable
