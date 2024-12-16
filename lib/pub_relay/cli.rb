@@ -1,7 +1,7 @@
 require 'thor'
 
 module PubRelay
-  class CLI < Thor
+  class Cli < Thor
     desc 'list', 'List all subscribed servers'
     def list
       ::Subscription.pluck(:domain).each do |domain|

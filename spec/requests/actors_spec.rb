@@ -5,8 +5,8 @@ RSpec.describe "/actors", type: :request do
     let(:public_key_pem) { Actor.key.public_key.to_pem }
 
     before do
-      allow(ENV).to receive(:fetch).and_call_original
-      allow(ENV).to receive(:fetch).with("LOCAL_DOMAIN", "www.example.com").and_return("www.example.com")
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with("DOMAIN").and_return("www.example.com")
 
       get '/actor'
     end
@@ -25,13 +25,13 @@ RSpec.describe "/actors", type: :request do
           "https://www.w3.org/ns/activitystreams",
           "https://w3id.org/security/v1"
         ],
-        "id" =>"http://www.example.com/actor",
+        "id" =>"https://www.example.com/actor",
         "type" => "Service",
         "preferredUsername" => "relay",
-        "inbox" => "http://www.example.com/inbox",
+        "inbox" => "https://www.example.com/inbox",
         "publicKey" => {
-          "id" => "http://www.example.com/actor#main-key",
-          "owner"=>"http://www.example.com/actor",
+          "id" => "https://www.example.com/actor#main-key",
+          "owner"=>"https://www.example.com/actor",
           "publicKeyPem" => public_key_pem
         }
       }

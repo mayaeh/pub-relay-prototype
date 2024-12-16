@@ -62,14 +62,14 @@ class ProcessWorker
     
     accept_activity = Oj.dump({
       '@context': %w(https://www.w3.org/ns/activitystreams https://w3id.org/security/v1),
-      id: URI.join(Rails.application.routes.url_helpers.root_url, "/actor#accepts/follows/#{domain}"),
+      id: "https://#{ENV["DOMAIN"]}/actor#accepts/follows/#{domain}",
       type: 'Accept',
-      actor: URI.join(Rails.application.routes.url_helpers.root_url, "/actor"),
+      actor: "https://#{ENV["DOMAIN"]}/actor",
         object: {
           id: @json['id'],
           type: "Follow",
           actor: @actor['id'],
-          object: URI.join(Rails.application.routes.url_helpers.root_url, "/actor")
+          object: "https://#{ENV["DOMAIN"]}/actor"
         },
     })
 

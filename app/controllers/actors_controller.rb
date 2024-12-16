@@ -16,4 +16,14 @@ class ActorsController < ApplicationController
       },
     })
   end
+
+  private
+
+  def actor_url
+    "https://#{ENV['DOMAIN']}/actor"
+  end
+
+  def inbox_url
+    "https://#{ENV['DOMAIN']}/inbox"
+  end
 end

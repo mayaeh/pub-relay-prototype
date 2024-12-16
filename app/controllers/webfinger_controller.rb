@@ -10,7 +10,7 @@ class WebfingerController < ApplicationController
       links: [{
         rel: 'self',
         type: 'application/activity+json',
-        href: actor_url,
+        href: "https://#{ENV['DOMAIN']}/actor",
       }],
     })
   end
@@ -18,6 +18,6 @@ class WebfingerController < ApplicationController
   private
 
   def acct
-    'acct:relay@' + Rails.application.default_url_options[:host]
+    "acct:relay@#{ENV["DOMAIN"]}"
   end
 end

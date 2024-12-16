@@ -34,7 +34,7 @@ class DeliverWorker
   private
 
   def actor_url
-    PubRelay::Application.routes.url_helpers.actor_url
+    "https://#{ENV['DOMAIN']}/actor"
   end
 
   def http_client
