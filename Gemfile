@@ -44,6 +44,6 @@ group :production do
   gem 'lograge'
 end
 
-gem 'tzinfo-data', '~> 1.2024'
+gem 'tzinfo-data', '~> 1.2025'
 
 gem 'resolv', '~> 0.3.0'
