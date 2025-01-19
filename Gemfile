@@ -15,7 +15,7 @@ gem 'sidekiq'
 gem 'sidekiq-bulk'
 gem 'dotenv'
 gem 'nokogiri'
-gem "hiredis-client", "~> 0.22.2"
+gem "hiredis-client", "~> 0.23.2"
 gem 'redis-namespace', '~> 1.10'
 gem 'redis', '~> 5.3'
 gem 'redis-rails'
