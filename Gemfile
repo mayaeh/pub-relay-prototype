@@ -17,7 +17,7 @@ gem 'dotenv'
 gem 'nokogiri'
 gem "hiredis-client", "~> 0.22.2"
 gem 'redis-namespace', '~> 1.10'
-gem 'redis', '~> 5.3'
+gem 'redis', '~> 5.4'
 gem 'redis-rails'
 gem 'fast_blank'
 
